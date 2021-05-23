@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <title>Counter</title>
+
+    <style>
+
+        *{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            text-transform: capitalize;
+            font-family: sans-serif;
+            border: none;
+            outline: none;
+            letter-spacing: 2px;
+        }
+
+        body{
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+            background: #222;
+        }
+
+        .container{
+            width: 500px;
+            text-align: right;
+        }
+
+        .box-container{
+            height: 200px;
+            width: 100%;
+            background: #444;
+            box-shadow: 0 5px 15px #111;
+            border-radius: 5px;
+            padding: 15px;
+        }
+
+        .box-container .box{
+            height: 80%;
+            width: 100%;
+            border-radius: 5px;
+            padding: 10px;
+            background: #f8f8f8;
+            overflow-y: auto;
+            text-align: left;
+        }
+
+        #input{
+            width: 100%;
+            height: 40px;
+            background: none;
+            font-size: 15px;
+            color: #fff;
+            border-bottom: 1px solid #fff;
+        }
+
+        #input:focus{
+            border-bottom: 2px solid #fff;
+        }
+
+        .container button{
+            height: 30px;
+            width: 160px;
+            background: #ff0033;
+            color: #fff;
+            cursor: pointer;
+            margin: 10px 0;
+            font-size: 15px;
+            box-shadow: 0 3px 10px #111;
+            border-radius: 5px;
+        }
+
+        .like-part{
+            display: flex;
+        }
+
+        .like-part P{
+            color: ivory;
+            justify-content: center;
+            padding: 1rem 3rem;
+        }
+
+        .like-part button{
+            height: 30px;
+            width: 160px;
+            cursor: pointer;
+            margin: 10px 0;
+            font-size: 15px;
+            box-shadow: 0 3px 10px #111;
+            border-radius: 5px;
+        }
+            
+        #plus:hover{
+            background: lightgreen;
+        }
+
+        #minus:hover{
+            background: brown
+        }
+    </style>
+    
+
+    <script src="jquery.js"></script>
+</head>
+<body>
+    <div>
+    <div class="container">
+        <input type="text" id="input" placeholder="Write your comment here ..">  
+        <button type="button" name="button" id="comment">Comment</button>
+        <button type="button" name="button" id="cancel">Cancel</button>        
+        <button type="button" name="button" id="delete">Delete</button>
+    </div>
+
+    <div class="box-container">
+        <div class="box">
+        </div>
+    </div>
+
+    <div class="like-part">
+        <button id="plus"><i class="fa fa-thumbs-up"></i></button>
+        <p> 30 </p>
+        <button id="minus"><i class="fa fa-thumbs-down"></i></button>
+    </div>
+
+</div>
+
+<script type="text/javascript">
+    $(document).ready(function(){
+
+        $('#comment').click(function(){
+            var input = $('#input').val();
+            $('.box').append(input + '<br>'); 
+            $('input').val('');
+        });
+
+        $('#cancel').click(function(){
+            $('input').val('');
+        });
+
+        $('#delete').click(function(){
+            $('.box').text('');
+            $('.box-container').slideUp();
+        });
+    })
+</script>
+
+
+<script>
+    $(document).ready(function(){
+        var x = $("p").text();
+
+        $("#plus").click(function(){
+            $("p").text(++x);
+        })
+
+        $("#minus").click(function(){
+            $("p").text(--x);
+        })
+    })
+</script>
+
+</body>
+</html>
